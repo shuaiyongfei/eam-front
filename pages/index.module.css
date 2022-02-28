@@ -1,0 +1,12 @@
+.menu{
+  position: relative;
+  clear: both;
+}
+:global(.ant-menu-horizontal) .left{
+  position: absolute !important;
+  right:0px
+}
+:global(.ant-menu-horizontal) .left1{
+  position: absolute !important;
+  right:60px
+}
