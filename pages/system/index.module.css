@@ -1,0 +1,14 @@
+.menu{
+  position: relative;
+  clear: both;
+}
+:global(.ant-menu-horizontal) .left{
+  position: absolute !important;
+  right:0px
+}
+.sider{
+ min-height: 100vh;
+ width: 200px;
+}
+.content{
+}
