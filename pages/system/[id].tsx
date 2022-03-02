@@ -1,31 +1,19 @@
-import { useEffect,useState } from 'react'
+import React,{useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import classNames from 'classnames/bind';
 import { Layout, Menu } from 'antd';
+
+
 import style from './index.module.css'
 import AllForm from '../../container/AllForm';
 import Member from '../../container/Member';
+import Chart from '../../container/Chart';
 const {  Sider, Content } = Layout;
 let cx = classNames.bind(style);
 
 const HomePage=()=> {
-
-  const [title,SetTitle]=useState(0);
-  
-  useEffect(()=>{
-    const fobbin=function (e) {
-      e = e || window.event;
-      if (e) {
-        e.returnValue = '关闭提示';
-      }
-      return '关闭提示';
-    }
-    window.addEventListener('beforeunload',fobbin)
-    return ()=>{
-      window.removeEventListener('beforeunload',fobbin)
-    }
-  },[])
-
+  const router = useRouter()
   return<>
     <Layout>
       <header>
@@ -42,28 +30,42 @@ const HomePage=()=> {
       </header>
       <Layout>
         <Sider className={cx('sider')}>
-        <Menu theme="dark" mode="inline"  onClick={(e)=>[
-          console.log(e)
-        ]}>
-            <Menu.Item key="1" >
+        <Menu theme="dark" mode="inline">
+            <Menu.Item key="1" onClick={()=>{
+              router.push('/system/all')
+            }} >
               全貌数据
             </Menu.Item>
-            <Menu.Item key="2" >
+            <Menu.Item key="2" onClick={()=>{
+              router.push('/system/all')
+            }}>
               高后果区
             </Menu.Item>
-            <Menu.Item key="3" >
+            <Menu.Item key="3" onClick={()=>{
+              router.push('/system/member')
+            }}>
               成员管理
             </Menu.Item>
-            <Menu.Item key="4" >
+            <Menu.Item key="4" onClick={()=>{
+              router.push('/system/all')
+            }}>
               巡回人员
             </Menu.Item>
-            <Menu.Item key="5" >
+            <Menu.Item key="5" onClick={()=>{
+              router.push('/system/chart')
+            }}>
               数据统计
             </Menu.Item>
           </Menu>
         </Sider>
         <Content className={cx('content')}>
-          <Member></Member>
+          {
+            router.query.id==='all'?
+            <AllForm></AllForm>:
+            router.query.id==='member'?
+            <Member></Member>:
+            router.query.id==='chart'?<Chart></Chart>:null 
+          }
         </Content>
       </Layout>
     </Layout>

@@ -1,13 +1,39 @@
-import React, { useState } from "react"
-import { Form, Input, Select,InputNumber} from 'antd';
+import React from "react";
+import classNames from "classnames/bind";
+import { Form, Input, Select,InputNumber, Button, Modal, notification} from 'antd';
+import style from './index.module.css'
+import {frontRequest as request} from '../../utils/axios'
+
+let cx = classNames.bind(style);
+
 
 const {Option}=Select
 const { TextArea } = Input;
 
 const meta:React.FC<any>=()=>{
+  const [form] = Form.useForm();
 
-  const [secondCity,setSecondCity]=useState('')
+  const onSelect = (type: string) =>(val:string)=> {
+     form.setFields([{name:type,
+      value:val}]);
+  }
 
+  const OnFinish= async (val)=>{
+   const result= await request<any>({url:"/serious",data:val , method:"post"})
+   if(result.data?.errorCode){
+      Modal.warning({
+        title: '输入错误',
+        content: result.data.msg,
+      });
+    }
+  else{
+    notification.success({
+      message: '记录成功',
+      description:
+        '可以使用了'
+      });
+    }
+  }
 
   const provinceData = ['Zhejiang', 'Jiangsu'];
   const cityData = {
@@ -15,140 +41,160 @@ const meta:React.FC<any>=()=>{
   Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
   };
   return <Form
-    labelCol={{ span: 8 }}
-    wrapperCol={{ span: 8 }}
-      >
+    labelCol={{ span: 6 }}
+    wrapperCol={{ span: 18 }}
+    form={form} onFinish={OnFinish}>
      <Form.Item
         label="高后果区编号"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="name"
+        rules={[{ required: true, message: '请输入高后果区编号' }]}
       >
         <Input />
       </Form.Item>
       <Form.Item
         label="单位名称"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="unit"
+        rules={[{ required: true, message: '请输入单位名称' }]}
       >
         <Input />
       </Form.Item>
       <Form.Item
         label="管道名称"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="pipeline"
+        rules={[{ required: true, message: '请输入管道名称' }]}
       >
         <Input />
       </Form.Item>
-      <Form.Item
-       label="地址"
-       name="index">
-      <Select  style={{ width: 120 }} placeholder='省'>
-        {provinceData.map(province => (
-          <Option key={province} value={province}>{province}</Option>
-        ))}
-      </Select>
-      <Select style={{ width: 120 }}  onChange={()=>{}} placeholder='市'>
-        {cityData['Jiangsu'].map(city => (
-          <Option key={city} value={city}>{city}</Option>
-        ))}
-      </Select>
-      <Select style={{ width: 120 }}  onChange={()=>{}} placeholder='区'>
-        {cityData['Jiangsu'].map(city => (
-          <Option key={city} value={city}>{city}</Option>
-        ))}
-      </Select>
-      </Form.Item>
+      <div style={{display:'flex'}} className={cx('address')}>
+        <Form.Item
+        label="地址"
+        name='province'>
+          <Select  style={{ width: 120 }} placeholder='省' onSelect={onSelect('province')}>
+            {provinceData.map(province => (
+              <Option key={province} value={province}>{province}</Option>
+            ))}
+          </Select>
+        </Form.Item>
+        <Form.Item
+        name='city'>
+          <Select style={{ width: 120 }} placeholder='市' onChange={onSelect('city')}>
+            {cityData['Jiangsu'].map(city => (
+              <Option key={city} value={city}>{city}</Option>
+            ))}
+          </Select>
+        </Form.Item>
+        <Form.Item
+        name='region'>
+          <Select style={{ width: 120 }} placeholder='区' onChange={onSelect('region')}>
+            {cityData['Jiangsu'].map(city => (
+              <Option key={city} value={city}>{city}</Option>
+            ))}
+          </Select>
+        </Form.Item>
+      </div>
       <Form.Item
         label="高后果区起始地址"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="startEnd"
+        rules={[{ required: true, message: '请输入管道名称高后果区起始地址' }]}
       >
         <Input />
       </Form.Item>
       <Form.Item
-        label="高后果管道长度"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        label="高后果区管道长度"
+        name="length"
+        rules={[{ required: true, message: '请输入高后果区管道长度' }]}
       >
-        <Input  placeholder='km'/>
+      <Input  placeholder='km'/>
       </Form.Item>
       <Form.Item
         label="管道输送介质"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="medium"
+        rules={[{ required: true, message: '请输入管道运输介质' }]}
       >
         <Input/>
       </Form.Item>
       <Form.Item
-        label="管道输送介质"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        label='地区等级'
+        name="regionLevel"
+        //rules={[{ required: true, message: '请输入地区等级' }]}
       >
-        <Input/>
+        <Select onChange={onSelect('regionLevel')}>
+          <option value={1}>
+            一级
+          </option>
+          <option value={2}>
+            二级
+          </option>
+          <option value={3}>
+            三级
+          </option>
+        </Select>
       </Form.Item>
       <Form.Item
         label='高后果区等级'
+        name="seriousLevel"
+       // rules={[{ required: true, message: '请输入高后果区等级' }]}
       >
-        <Select>
-          <option value="">
+        <Select  onChange={onSelect('seriousLevel')}>
+          <option value={1}>
             一级
           </option>
-          <option value="">
+          <option value={2}>
             二级
           </option>
-          <option value="">
+          <option value={3}>
             三级
           </option>
         </Select>
       </Form.Item>
       <Form.Item
         label="高后果区类型"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="seriousType"
+        rules={[{ required: true, message: '请输入高后果区类型' }]}
       >
         <Input/>
       </Form.Item>
       <Form.Item
         label="高后果区描述"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="seriousDes"
+        rules={[{ required: true, message: '请输入高后果区类型' }]}
       >
         <TextArea/>
       </Form.Item>
       <Form.Item
         label="失效可能性"
-        name="index2"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="failurePossibility"
+        rules={[{ required: true, message: '请输入失效可能性' }]}
       >
         <InputNumber/>
       </Form.Item>
       <Form.Item
         label="失效后果"
-        name="index3"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="failureConsequence"
+        rules={[{ required: true, message: '请输入失效后果' }]}
       >
         <InputNumber/>
       </Form.Item>
       <Form.Item
         label="风险值"
-        name="index3"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="raskVal"
+        // rules={[{ required: true, message: '请输入风险值' }]}
       >
         <InputNumber/>
       </Form.Item>
       <Form.Item
-        label="风险值"
-        name="index3"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        label="风险等级"
+        name="raskLevel"
+        //rules={[{ required: true, message: '请输入风险等级' }]}
       >
-        <Select>
-          <option value="">
+        <Select onChange={onSelect('raskLevel')}>
+          <option value="lower">
             低
           </option>
-          <option value="">
+          <option value="middle">
             中
           </option>
-          <option value="">
+          <option value="hight">
             高
           </option>
         </Select>
@@ -156,45 +202,55 @@ const meta:React.FC<any>=()=>{
       <Form.Item
         label="风险描述"
         name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        rules={[{ required: true, message: '请输入风险描述' }]}
       >
         <TextArea/>
       </Form.Item>
       <Form.Item
         label="建议措施"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="measures"
+        rules={[{ required: true, message: '请输入建议措施' }]}
       >
         <TextArea/>
       </Form.Item>
       <Form.Item
         label='巡回人员'
+        name='personnel'
+        rules={[{ required: true, message: '请输入巡护人员' }]}
       >
        <Input/>
       </Form.Item>
       <Form.Item
         label='上游阀室'
+        name='upperOil'
+        rules={[{ required: true, message: '请输入上游阀室' }]}
       >
        <Input/>
       </Form.Item>
       <Form.Item
         label='下游阀室'
+        name='lowerOil'
+        rules={[{ required: true, message: '请输入下游阀室' }]}
       >
        <Input/>
       </Form.Item>
       <Form.Item
         label="阀室距离"
-        name="index3"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="distance"
+        rules={[{ required: true, message: '请输入阀室距离' }]}
       >
         <InputNumber/>
       </Form.Item>
       <Form.Item
         label="备注"
-        name="index"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        name="remarks"
       >
         <TextArea/>
+      </Form.Item>
+      <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
+        <Button type="primary" htmlType="submit">
+          提交
+        </Button>
       </Form.Item>
   </Form>
 }
