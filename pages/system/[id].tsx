@@ -9,6 +9,9 @@ import style from './index.module.css'
 import AllForm from '../../container/AllForm';
 import Member from '../../container/Member';
 import Chart from '../../container/Chart';
+import UpLoad from '../../container/Upload';
+import Inspection from '../../container/Inspection';
+
 const {  Sider, Content } = Layout;
 let cx = classNames.bind(style);
 
@@ -47,7 +50,7 @@ const HomePage=()=> {
               成员管理
             </Menu.Item>
             <Menu.Item key="4" onClick={()=>{
-              router.push('/system/all')
+              router.push('/system/inspection')
             }}>
               巡回人员
             </Menu.Item>
@@ -64,8 +67,11 @@ const HomePage=()=> {
             <AllForm></AllForm>:
             router.query.id==='member'?
             <Member></Member>:
-            router.query.id==='chart'?<Chart></Chart>:null 
+            router.query.id==='chart'?<Chart></Chart>:router.query.id==='inspection'?<Inspection></Inspection>:null
           }
+          {/* <>
+          <UpLoad action='/api/upload'></UpLoad>
+          </> */}
         </Content>
       </Layout>
     </Layout>

@@ -1,9 +1,9 @@
 import { Button, Popconfirm, Select,Table, Space  } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ColumnsType } from 'antd/es/table';
 import { SearchOutlined } from '@ant-design/icons';
 import { useRouter } from "next/router";
-
+import { frontRequest } from "../../utils/axios";
 const { Option }=Select
 
 
@@ -12,38 +12,46 @@ const { Option }=Select
 const  AllForm=()=>{
 
   const router = useRouter()
-  const xdata = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
-    },
-  ];
-  
-  const [data,setData]=useState(xdata)
+  const [flag,setFlag]=useState(false)
+  const [data,setData]=useState([])
+
+
+  useEffect(()=> {
+    async function getData (){
+      const temp=await frontRequest<any>({ method: 'GET', url: '/getSerious' })
+      setData(temp.data)
+    }
+    getData()
+  },[flag])
+
+  async function deleteSerious(cache:Array<string>){
+    let result= await frontRequest<any>({method:"POST",data:cache,url:'/deleteSerious'})
+    setFlag(!flag)
+  }
+
+ let proxyFunc = (function(callback){
+    let cache = new Set<string>(),  // 保存一段时间内的id
+        timer = null; // 定时器
+    return function(name) {
+        cache.add(name)
+        if(timer) {
+            return;
+        }
+        timer = setTimeout(function(){      
+            callback([...cache]); 
+            clearTimeout(timer);
+            timer = null;
+            cache.clear();
+        },2000);
+    }
+  })(deleteSerious);
 
   const columns: ColumnsType = [
     {
       title: '高后果区编号',
       dataIndex: 'name',
       fixed: 'left',
-      width: 100,
+      width: 200,
     },
     {
       title: '单位名称',
@@ -103,7 +111,7 @@ const  AllForm=()=>{
     {
       title:'高后果区描述',
       dataIndex:"seriousDes",
-      width: 100,
+      width: 400,
     },
     {
       title:'失效可能性',
@@ -128,12 +136,12 @@ const  AllForm=()=>{
     {
       title:'风险描述',
       dataIndex:"raskDes",
-      width: 100,
+      width: 400,
     },
     {
       title:'建议措施',
       dataIndex:"measures",
-      width: 100,
+      width: 400,
     },
     {
       title:'巡回人员',
@@ -169,15 +177,13 @@ const  AllForm=()=>{
         <Space size="middle">
           <Popconfirm title='你确定要删除'
             onConfirm={()=>{
-              const temp=[...data]
-              temp.splice(text.index-1,1);
-              setData(temp)
+              proxyFunc(text.name)
             }}
           >
           <a>删除</a>
           </Popconfirm>
           <a onClick={()=>{
-            router.push('/meta')
+            router.push(`/meta?id=${text.name}`)
           }}>修改</a>
         </Space>
       ),
@@ -197,7 +203,9 @@ const  AllForm=()=>{
             </Button>
           </div>
           <div>
-            <Button type="primary">
+            <Button type="primary" onClick={()=>{
+              router.push('/meta')
+            }}>
               添加
             </Button>
           </div>
@@ -210,6 +218,7 @@ const  AllForm=()=>{
       </>
   );
 }
+
 
 
 export default AllForm

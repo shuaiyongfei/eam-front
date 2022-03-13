@@ -5,7 +5,7 @@ import { ColumnsType } from 'antd/es/table';
 import { frontRequest } from "../../utils/axios";
 
 
-const Member:React.FC<any>=()=>{
+const Inspection:React.FC<any>=()=>{
   const [data,setData]=useState<Array<any>>()
   const router = useRouter()
   useEffect(()=>{
@@ -49,11 +49,11 @@ const Member:React.FC<any>=()=>{
 
   const columns: ColumnsType=[
     {
-      title: '账号',
+      title: '巡护人员',
       dataIndex: 'user',
     },
     {
-      title: '角色',
+      title: '电话',
       dataIndex: 'admin',
     },
     {
@@ -86,4 +86,4 @@ const Member:React.FC<any>=()=>{
     </Table>
   </>)
 }
-export default Member
+export default Inspection

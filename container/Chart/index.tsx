@@ -15,8 +15,7 @@ const Chart:React.FC<any>=()=>{
     let option: EChartsOption;
     option = {
       title: {
-        text: 'Referer of a Website',
-        subtext: 'Fake Data',
+        text: "高后果区占比",
         left: 'center'
       },
       tooltip: {
@@ -28,15 +27,13 @@ const Chart:React.FC<any>=()=>{
       },
       series: [
         {
-          name: 'Access From',
+          name: '高后果区',
           type: 'pie',
           radius: '50%',
           data: [
-            { value: 1048, name: 'Search Engine' },
-            { value: 735, name: 'Direct' },
-            { value: 580, name: 'Email' },
-            { value: 484, name: 'Union Ads' },
-            { value: 300, name: 'Video Ads' }
+            { value: 1048, name: 'I' },
+            { value: 735, name: 'Ⅱ' },
+            { value: 580, name: 'Ⅲ' },
           ],
           emphasis: {
             itemStyle: {

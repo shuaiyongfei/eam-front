@@ -11,7 +11,7 @@ let cx = classNames.bind(style);
 const {Option}=Select
 const { TextArea } = Input;
 
-const meta:React.FC<any>=()=>{
+const Choice:React.FC<any>=()=>{
   const [form] = Form.useForm();
   const router = useRouter()
   const id=router.query.id
@@ -271,4 +271,4 @@ const meta:React.FC<any>=()=>{
       </Form.Item>
   </Form>
 }
-export default meta
+export default Choice
