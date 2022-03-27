@@ -9,6 +9,7 @@ const Member:React.FC<any>=()=>{
   const [data,setData]=useState<Array<any>>()
   const router = useRouter()
   useEffect(()=>{
+    console.log('+++++++++++++++++++++++++++++=')
     frontRequest({method:"GET",url:'/user/all'}).then((res)=>{
       if(Array.isArray(res.data)){
       setData(res.data.map(val=>{

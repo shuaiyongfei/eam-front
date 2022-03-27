@@ -1,4 +1,6 @@
-import axios from 'axios'
+import { IncomingForm } from 'formidable'
+import FormData from 'form-data'
+import fs from 'fs'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import {serverRequest} from "../../utils/axios"
@@ -6,17 +8,23 @@ import {serverRequest} from "../../utils/axios"
 
 export default async function  handler(req:NextApiRequest, res:NextApiResponse) {
   let url='/v1/upload'
-  const data = req.body
-  console.log(data)
-  console.log(req.headers['content-type'])
-  try {
-    const result=await serverRequest<any>({method:'post',url,data, headers:{'Content-type':req.headers['content-type'],
-  }})
-    res.status(200).json(result.data)
-  } catch (error) {
-    if(axios.isAxiosError(error)){
-      res.status(500).json('服务器错误')
-    }
-  }
+  const data = await new Promise((resolve, reject) => {
+    const form = new IncomingForm()
+    form.parse(req, (err, fields, files) => {
+        if (err) return reject(err)
+        resolve({ fields, files })
+      })
+  })
+  const path=(data as any).files.file.filepath;
+  let form = new FormData(); 
+  form.append('file', fs.createReadStream(path));
+  await serverRequest({url,method:'POST',data:form, headers:form.getHeaders()});
+  res.send("多图上传失败");
 }
 
+
+
+export const config = {
+  api: {
+    bodyParser: false,
+}}

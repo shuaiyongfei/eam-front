@@ -28,7 +28,7 @@ export default async function  handler(req:NextApiRequest, res:NextApiResponse) 
   }
   else if(id==='all'){
     try {
-      const result=await serverRequest<any>({method:"GET",url:'v1/user/all'})
+      const result=await serverRequest<any>({method:"GET",url:'v1/user/all',headers:{authorization:req.headers.authorization}})
       res.status(200).json(result.data)
     } catch (error) {
       if(axios.isAxiosError(error)){

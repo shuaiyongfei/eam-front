@@ -1,8 +1,7 @@
-import React,{useState } from 'react'
-import Link from 'next/link'
+import React from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames/bind';
-import { Layout, Menu } from 'antd';
+import { Button, Layout, Menu } from 'antd';
 
 
 import style from './index.module.css'
@@ -10,7 +9,7 @@ import AllForm from '../../container/AllForm';
 import Member from '../../container/Member';
 import Chart from '../../container/Chart';
 import UpLoad from '../../container/Upload';
-import Inspection from '../../container/Inspection';
+import Inspection from '../../container/Inspect';
 
 const {  Sider, Content } = Layout;
 let cx = classNames.bind(style);
@@ -25,9 +24,12 @@ const HomePage=()=> {
           个人中心
           </Menu.Item>
           <Menu.Item key="login" className={cx('left')}>
-            <Link href='./login'>
-              退出登录
-            </Link>
+          <Button type="link" onClick={()=>{
+            localStorage.removeItem(
+              "userLoginInfo"
+            );
+            router.push('/register')
+          }}>退出登录</Button>
           </Menu.Item>
         </Menu>
       </header>
@@ -59,6 +61,11 @@ const HomePage=()=> {
             }}>
               数据统计
             </Menu.Item>
+            <Menu.Item key="6" onClick={()=>{
+              router.push('/system/upload')
+            }}>
+              文件上传
+            </Menu.Item>
           </Menu>
         </Sider>
         <Content className={cx('content')}>
@@ -67,11 +74,9 @@ const HomePage=()=> {
             <AllForm></AllForm>:
             router.query.id==='member'?
             <Member></Member>:
-            router.query.id==='chart'?<Chart></Chart>:router.query.id==='inspection'?<Inspection></Inspection>:null
+            router.query.id==='chart'?<Chart></Chart>:router.query.id==='inspection'?<Inspection></Inspection>:
+            router.query.id==='upload'?<UpLoad action='/api/upload'></UpLoad>:null
           }
-          {/* <>
-          <UpLoad action='/api/upload'></UpLoad>
-          </> */}
         </Content>
       </Layout>
     </Layout>

@@ -5,10 +5,8 @@ import {serverRequest} from "../../utils/axios"
 
 
 export default async function  handler(req:NextApiRequest, res:NextApiResponse) {
-  let url='/v1/serious/submit/'+req.query.kind
-  const data = req.body
   try {
-    const result=await serverRequest<any>({method:'post',url,data})
+    const result=await serverRequest<any>({method:"GET",url:'/v1/serious/data/count'})
     res.status(200).json(result.data)
   } catch (error) {
     if(axios.isAxiosError(error)){

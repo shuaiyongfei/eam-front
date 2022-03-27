@@ -17,6 +17,14 @@ const server=axios.create({
 })
 
 
+front.interceptors.request.use((config)=>{
+  const token=localStorage.getItem(
+    "userLoginInfo")
+  config.headers.Authorization = `token ${localStorage.getItem(
+    "userLoginInfo")}`
+  return config
+})
+
 export function frontRequest<T>(options: AxiosRequestConfig) {
   return front.request<T>(options);
 }

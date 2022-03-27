@@ -23,13 +23,14 @@ const Login:React.FC<any>=()=>{
         else{
           localStorage.setItem(
             "userLoginInfo",
-            JSON.stringify(result.data?.token)
+            result.data?.msg
           ); 
           notification.success({
             message: '登录成功',
             description:
               '可以使用了'
             });
+          window.location.href='/system/all'
         }
       }
       else{ 

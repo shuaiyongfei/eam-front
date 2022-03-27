@@ -1,10 +1,9 @@
-import { Button, Popconfirm, Select,Table, Space  } from "antd";
+import { Button, Popconfirm,Table, Space, Input  } from "antd";
 import React, { useEffect, useState } from "react";
 import { ColumnsType } from 'antd/es/table';
 import { SearchOutlined } from '@ant-design/icons';
 import { useRouter } from "next/router";
 import { frontRequest } from "../../utils/axios";
-const { Option }=Select
 
 
 
@@ -14,7 +13,7 @@ const  AllForm=()=>{
   const router = useRouter()
   const [flag,setFlag]=useState(false)
   const [data,setData]=useState([])
-
+  const [value,setValue]=useState('')
 
   useEffect(()=> {
     async function getData (){
@@ -38,7 +37,7 @@ const  AllForm=()=>{
             return;
         }
         timer = setTimeout(function(){      
-            callback([...cache]); 
+            callback(Array.from(cache)); 
             clearTimeout(timer);
             timer = null;
             cache.clear();
@@ -190,16 +189,32 @@ const  AllForm=()=>{
     }
   ];
   
+  const search= async (query)=>{
+    console.log(query,'+++++++')
+    const raw=new URLSearchParams(query).entries()
+    let value= raw.next();
+    const data={}
+    while(!value.done){
+      data[value.value[0]]=value.value[1];
+      value=raw.next()
+    }    
+    let res=await frontRequest<any>({method:"post",url:'/search',data})
+    setData(res.data)
+  }
+
+
   return (
       <>
         <div style={{margin:'10px 0px 10px 0px',display:"flex",justifyContent:'space-between'}}>
-          <div>
-            <Select  style={{ width: 120 }}  placeholder={'风险等级'} onChange={()=>{}}>
-              <Option value="1">一级</Option>
-              <Option value="2">二级</Option>
-              <Option value="3">三级</Option>
-            </Select>
-            <Button type="primary" icon={<SearchOutlined />}>
+          <div style={{display:'flex',width:'40vw'}}>
+            <Input placeholder="搜索格式：类型：内容"  value={value} onChange={(e)=>{
+              const targetValue=e.target.value
+              setValue(targetValue)
+            }}/>
+            <Button type="primary" icon={<SearchOutlined />} style={{width:"5vw"}} onClick={()=>{
+              const query=value.trim().replace(/\s*[:\uff1a]\s*/ug,'=').replace(/\s*\|\s*/g,'&')
+              search(query)
+            }}>
             </Button>
           </div>
           <div>

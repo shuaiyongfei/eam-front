@@ -153,14 +153,14 @@ const meta:React.FC<any>=()=>{
        // rules={[{ required: true, message: '请输入高后果区等级' }]}
       >
         <Select  onChange={onSelect('seriousLevel')}>
-          <option value={1}>
-            一级
+          <option value={'I级'}>
+          I级
           </option>
-          <option value={2}>
-            二级
+          <option value={'II级'}>
+          II级
           </option>
-          <option value={3}>
-            三级
+          <option value={'III级'}>
+          III级
           </option>
         </Select>
       </Form.Item>
@@ -218,7 +218,7 @@ const meta:React.FC<any>=()=>{
       </Form.Item>
       <Form.Item
         label="风险描述"
-        name="index"
+        name="raskDes"
         rules={[{ required: true, message: '请输入风险描述' }]}
       >
         <TextArea/>

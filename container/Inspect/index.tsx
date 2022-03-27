@@ -9,19 +9,9 @@ const Inspection:React.FC<any>=()=>{
   const [data,setData]=useState<Array<any>>()
   const router = useRouter()
   useEffect(()=>{
-    frontRequest({method:"GET",url:'/user/all'}).then((res)=>{
-      if(Array.isArray(res.data)){
-      setData(res.data.map(val=>{
-        let admin=''
-        if(val.admin){
-         admin='管理员'
-        }
-        else{
-          admin='普通'
-        }
-        return {...val,admin}
-      }))
-      }
+    frontRequest({method:"GET",url:'/inspection'}).then((res)=>{
+      
+     setData(res.data as any)
     })
   },[])
   const strikeOut = useMemo(()=>{
@@ -50,11 +40,11 @@ const Inspection:React.FC<any>=()=>{
   const columns: ColumnsType=[
     {
       title: '巡护人员',
-      dataIndex: 'user',
+      dataIndex: 'name',
     },
     {
       title: '电话',
-      dataIndex: 'admin',
+      dataIndex: 'phone',
     },
     {
       title: '操作',
