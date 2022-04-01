@@ -1,0 +1,91 @@
+Date : 2022-03-29 11:48:40
+Directory : c:\Users\dell\Desktop\node.js\eam\front
+Total : 41 files,  1825 codes, 25 comments, 200 blanks, all 2050 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| TypeScript React   |         15 |      1,312 |          9 |         81 |      1,402 |
+| TypeScript         |         17 |        333 |         16 |        110 |        459 |
+| CSS                |          6 |         68 |          0 |          1 |         69 |
+| JavaScript         |          1 |         41 |          0 |          6 |         47 |
+| JSON               |          1 |         41 |          0 |          1 |         42 |
+| JSON with Comments |          1 |         30 |          0 |          1 |         31 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                        |         41 |      1,825 |         25 |        200 |      2,050 |
+| base                                                                     |          3 |         46 |          0 |          6 |         52 |
+| base\container                                                           |          2 |         24 |          0 |          4 |         28 |
+| base\media                                                               |          1 |         22 |          0 |          2 |         24 |
+| config                                                                   |          1 |         28 |         12 |         24 |         64 |
+| container                                                                |          7 |        755 |          4 |         42 |        801 |
+| container\AllForm                                                        |          1 |        224 |          0 |         15 |        239 |
+| container\Chart                                                          |          1 |         64 |          0 |          8 |         72 |
+| container\Inspect                                                        |          1 |         74 |          0 |          5 |         79 |
+| container\Member                                                         |          1 |         86 |          0 |          4 |         90 |
+| container\Upload                                                         |          1 |         11 |          0 |          3 |         14 |
+| container\choice                                                         |          1 |        263 |          4 |          7 |        274 |
+| container\verification                                                   |          1 |         33 |          0 |          0 |         33 |
+| pages                                                                    |         20 |        743 |          5 |         73 |        821 |
+| pages\admin                                                              |          1 |         33 |          0 |          3 |         36 |
+| pages\api                                                                |          9 |        164 |          0 |         39 |        203 |
+| pages\api\user                                                           |          1 |         46 |          0 |          4 |         50 |
+| pages\meta                                                               |          2 |        266 |          4 |          7 |        277 |
+| pages\register                                                           |          2 |        125 |          0 |          7 |        132 |
+| pages\system                                                             |          2 |         95 |          0 |          5 |        100 |
+| store                                                                    |          3 |         79 |          0 |         25 |        104 |
+| utils                                                                    |          3 |         62 |          0 |         20 |         82 |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                 | language           | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\dell\Desktop\node.js\eam\front\base\container\index.module.css  | CSS                |         13 |          0 |          0 |         13 |
+| c:\Users\dell\Desktop\node.js\eam\front\base\container\index.tsx         | TypeScript React   |         11 |          0 |          4 |         15 |
+| c:\Users\dell\Desktop\node.js\eam\front\base\media\index.tsx             | TypeScript React   |         22 |          0 |          2 |         24 |
+| c:\Users\dell\Desktop\node.js\eam\front\config\index.ts                  | TypeScript         |         28 |         12 |         24 |         64 |
+| c:\Users\dell\Desktop\node.js\eam\front\container\AllForm\index.tsx      | TypeScript React   |        224 |          0 |         15 |        239 |
+| c:\Users\dell\Desktop\node.js\eam\front\container\Chart\index.tsx        | TypeScript React   |         64 |          0 |          8 |         72 |
+| c:\Users\dell\Desktop\node.js\eam\front\container\Inspect\index.tsx      | TypeScript React   |         74 |          0 |          5 |         79 |
+| c:\Users\dell\Desktop\node.js\eam\front\container\Member\index.tsx       | TypeScript React   |         86 |          0 |          4 |         90 |
+| c:\Users\dell\Desktop\node.js\eam\front\container\Upload\index.tsx       | TypeScript React   |         11 |          0 |          3 |         14 |
+| c:\Users\dell\Desktop\node.js\eam\front\container\choice\index.tsx       | TypeScript React   |        263 |          4 |          7 |        274 |
+| c:\Users\dell\Desktop\node.js\eam\front\container\verification\index.tsx | TypeScript React   |         33 |          0 |          0 |         33 |
+| c:\Users\dell\Desktop\node.js\eam\front\next-env.d.ts                    | TypeScript         |          0 |          4 |          2 |          6 |
+| c:\Users\dell\Desktop\node.js\eam\front\package.json                     | JSON               |         41 |          0 |          1 |         42 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\_app.tsx                   | TypeScript React   |          4 |          1 |          5 |         10 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\admin\index.tsx            | TypeScript React   |         33 |          0 |          3 |         36 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\count.ts               | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\deleteSerious.ts       | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\getOneSerious.ts       | TypeScript         |         14 |          0 |          4 |         18 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\getSerious.ts          | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\inspection.ts          | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\search.ts              | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\serious.ts             | TypeScript         |         15 |          0 |          4 |         19 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\upload.ts              | TypeScript         |         24 |          0 |          7 |         31 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\api\user\[id].ts           | TypeScript         |         46 |          0 |          4 |         50 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\index.module.css           | CSS                |         12 |          0 |          0 |         12 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\index.tsx                  | TypeScript React   |         43 |          0 |          7 |         50 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\meta\index.module.css      | CSS                |          3 |          0 |          0 |          3 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\meta\index.tsx             | TypeScript React   |        263 |          4 |          7 |        274 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\register\index.module.css  | CSS                |         25 |          0 |          1 |         26 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\register\index.tsx         | TypeScript React   |        100 |          0 |          6 |        106 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\styles.css                 | CSS                |          1 |          0 |          0 |          1 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\system\[id].tsx            | TypeScript React   |         81 |          0 |          5 |         86 |
+| c:\Users\dell\Desktop\node.js\eam\front\pages\system\index.module.css    | CSS                |         14 |          0 |          0 |         14 |
+| c:\Users\dell\Desktop\node.js\eam\front\server.js                        | JavaScript         |         41 |          0 |          6 |         47 |
+| c:\Users\dell\Desktop\node.js\eam\front\store\index.ts                   | TypeScript         |         18 |          0 |          7 |         25 |
+| c:\Users\dell\Desktop\node.js\eam\front\store\types.ts                   | TypeScript         |          8 |          0 |          3 |         11 |
+| c:\Users\dell\Desktop\node.js\eam\front\store\user.ts                    | TypeScript         |         53 |          0 |         15 |         68 |
+| c:\Users\dell\Desktop\node.js\eam\front\tsconfig.json                    | JSON with Comments |         30 |          0 |          1 |         31 |
+| c:\Users\dell\Desktop\node.js\eam\front\utils\axios.ts                   | TypeScript         |         25 |          0 |         12 |         37 |
+| c:\Users\dell\Desktop\node.js\eam\front\utils\cookie.ts                  | TypeScript         |          5 |          0 |          3 |          8 |
+| c:\Users\dell\Desktop\node.js\eam\front\utils\store.ts                   | TypeScript         |         32 |          0 |          5 |         37 |
+| Total                                                                    |                    |      1,825 |         25 |        200 |      2,050 |
++--------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

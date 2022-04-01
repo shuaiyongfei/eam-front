@@ -1,16 +1,26 @@
 .banner-bg {
   height: 350px;
   position: relative;
-  background: #3776FF;
-  background-image: -webkit-linear-gradient(left, #3776FF, #548AFF);
 }
 .title {
   font-size: 30px;
-  color: #FFFFFF;
+  color:black;
   line-height: 45px;
   text-align: center;
   font-weight: 900;
   margin-bottom: 50px;
+}
+.bg{
+  position: absolute;
+  top:10vh;
+  width: 100vw;
+  height: 70vh;
+  z-index: -1;
+  background-image: url('../../public/pieple.jpeg') ,url('../../public/bol.jpeg');
+  background-repeat: no-repeat;
+  background-position:right,left;
+  background-size: 50vw,50vw;
+  border: 0px solid white;
 }
 .card{
   box-sizing: border-box;

@@ -66,7 +66,7 @@ const Chart:React.FC<any>=()=>{
   },[data])
 
   return (
-    <div id='main' style={{width:'calc(100vw - 200px)',height:'100vh'}}>
+    <div id='main' style={{width:'calc(100vw - 200px)',height:'60vh'}}>
     </div>)
 }
 export default Chart

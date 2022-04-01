@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect,useMemo,useState } from "react"
-import { Popconfirm, Space, Table } from "antd";
+import { Button, Popconfirm, Space, Table } from "antd";
 import { useRouter } from 'next/router'
 import { ColumnsType } from 'antd/es/table';
 import { frontRequest } from "../../utils/axios";
@@ -83,6 +83,13 @@ const Member:React.FC<any>=()=>{
   ]
 
   return (<>
+   <div style={{display:'flex',justifyContent:"flex-end",margin:'10px 10px'}}>
+    <Button type="primary" onClick={()=>{
+              router.push('/admin')
+            }} >
+              添加
+    </Button>
+    </div>
     <Table columns={columns} dataSource={data}>
     </Table>
   </>)

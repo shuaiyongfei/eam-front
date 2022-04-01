@@ -1,5 +1,5 @@
-import React from "react"
-import { Form, Input} from 'antd';
+import React, { useState } from "react"
+import { Form, Input, Select,InputNumber} from 'antd';
 
 
 const Admin:React.FC<any>=()=>{
@@ -9,22 +9,15 @@ const Admin:React.FC<any>=()=>{
     wrapperCol={{ span: 8 }}
       >
      <Form.Item
-        label="账号"
+        label="姓名"
         name="user"
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
         <Input />
       </Form.Item>
       <Form.Item
-        label="密码"
+        label="电话"
         name="password"
-        rules={[{ required: true, message: 'Please input your username!' }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="角色"
-        name="role"
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
         <Input />

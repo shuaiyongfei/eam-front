@@ -60,6 +60,7 @@ const Login:React.FC<any>=()=>{
    
   return (<div className={cx('banner-bg')}>
     <div className={cx('title')}>高后果区管理系统注册</div>
+    <div className={cx('bg')}></div>
     <div className={cx('card')}>
     <Form
       colon={false}
