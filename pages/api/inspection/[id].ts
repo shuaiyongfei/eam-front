@@ -15,7 +15,11 @@ export default async function  handler(req:NextApiRequest, res:NextApiResponse) 
       res.status(200).json(result.data)
     }
     else if(req.query.id==='delete') {
-      const result=await serverRequest<any>({method:"POST",url:'/v1/inspection/delete'})
+      const result=await serverRequest<any>({method:"POST",url:'/v1/inspection/delete',data:{phone:req.body}})
+      res.status(200).json(result.data)
+    }
+    else if(req.query.id==='add'){
+      const result=await serverRequest<any>({method:"POST",url:'/v1/inspection/add',data:req.body})
       res.status(200).json(result.data)
     }
   } catch (error) {

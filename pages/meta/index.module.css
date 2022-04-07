@@ -1,3 +1,32 @@
 .address :global(.ant-form-item-label){
   min-width:25vw;
 }
+.bg{
+  margin: 5vw;
+  border: 2px solid black;
+}
+.address-content{
+  display: flex;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+.address-label{
+  flex: 0 0 25%;
+  max-width: 25%;
+  text-align: right;
+}
+.address-label::before{
+    display: inline-block;
+    margin-right: 4px;
+    color: #ff4d4f;
+    font-size: 14px;
+    font-family: SimSun, sans-serif;
+    line-height: 1;
+    content: '*';
+}
+.address-label::after{
+  content: ':';
+    position: relative;
+    top: -0.5px;
+    margin: 0 8px 0 2px;
+}

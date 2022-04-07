@@ -10,6 +10,7 @@ import Member from '../../container/Member';
 import Chart from '../../container/Chart';
 import UpLoad from '../../container/Upload';
 import Inspection from '../../container/Inspect';
+import Serious from '../../container/serious';
 
 const {  Sider, Content } = Layout;
 let cx = classNames.bind(style);
@@ -42,7 +43,7 @@ const HomePage=()=> {
               全貌数据
             </Menu.Item>
             <Menu.Item key="2" onClick={()=>{
-              router.push('/system/all')
+              router.push('/system/serious')
             }}>
               高后果区
             </Menu.Item>
@@ -75,7 +76,7 @@ const HomePage=()=> {
             router.query.id==='member'?
             <Member></Member>:
             router.query.id==='chart'?<Chart></Chart>:router.query.id==='inspection'?<Inspection></Inspection>:
-            router.query.id==='upload'?<UpLoad action='/api/upload'></UpLoad>:null
+            router.query.id==='upload'?<UpLoad action='/api/upload'></UpLoad>: router.query.id==='serious'?<Serious></Serious>:null
           }
         </Content>
       </Layout>

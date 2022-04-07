@@ -56,7 +56,7 @@ const Inspection:React.FC<any>=()=>{
             onConfirm={()=>{
               const tempData=[...data]
               tempData.splice(dataIndex,1)
-              strikeOut(text.user)
+              strikeOut(text.phone)
               setData(tempData)
             }}
           >

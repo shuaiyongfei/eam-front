@@ -190,7 +190,6 @@ const  AllForm=()=>{
   ];
   
   const search= async (query)=>{
-    console.log(query,'+++++++')
     const raw=new URLSearchParams(query).entries()
     let value= raw.next();
     const data={}

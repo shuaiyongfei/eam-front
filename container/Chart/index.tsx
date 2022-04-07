@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react"
 import {frontRequest} from '../../utils/axios'
 import * as echarts from 'echarts';
+import style from './index.module.css'
+import classNames from "classnames/bind";
+import { Card, Tabs } from "antd";
+const { TabPane } = Tabs;
 
+
+
+let cx = classNames.bind(style);
 
 type EChartsOption = echarts.EChartsOption;
 
@@ -29,10 +36,38 @@ const Chart:React.FC<any>=()=>{
     getData()
   },[])
 
-
+  const [flag,setFlag]=useState(false)
   useEffect(()=>{
     let chartDom = document.getElementById('main');
-    let myChart = echarts.init(chartDom);
+    let myChart = chartDom&&echarts.init(chartDom);
+    let option: EChartsOption;
+    const barData=data.map(val=>val.value)
+    option = {
+      title: {
+        text: "高后果区占比",
+        left: 'center'
+      },
+      xAxis: {
+        type: 'category',
+        data: ['I', 'Ⅱ','Ⅲ']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: '高后果区',
+          type: "bar",
+          data:barData,
+        }
+      ]
+    };
+    myChart&&myChart.setOption(option as any);
+  },[data,flag])
+  useEffect(()=>{
+    console.log('bar++++++++++++==')
+    let chartDom = document.getElementById('bar');
+    let myChart = chartDom&&echarts.init(chartDom);
     let option: EChartsOption;
     option = {
       title: {
@@ -41,10 +76,6 @@ const Chart:React.FC<any>=()=>{
       },
       tooltip: {
         trigger: 'item'
-      },
-      legend: {
-        orient: 'vertical',
-        left: 'left'
       },
       series: [
         {
@@ -62,11 +93,21 @@ const Chart:React.FC<any>=()=>{
         }
       ]
     };
-    myChart.setOption(option as any);
-  },[data])
-
+    myChart&&myChart.setOption(option as any);
+  },[data,flag])
   return (
-    <div id='main' style={{width:'calc(100vw - 200px)',height:'60vh'}}>
-    </div>)
+    <Card title="数据统计" bordered={false} className={cx('bg')}>
+  <Tabs defaultActiveKey="1" onTabClick={()=>{
+    setFlag(flag=>!flag)
+  }}>
+    <TabPane tab="柱状图" key="1">
+      <div id='main' className={cx('serious')}></div>
+    </TabPane>
+    <TabPane tab="饼图" key="2">
+      <div id='bar' className={cx('bar')}></div>
+    </TabPane>
+  </Tabs>
+  </Card>
+    )
 }
 export default Chart

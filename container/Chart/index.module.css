@@ -1,0 +1,22 @@
+.serious{
+  min-width: 70vw;
+  min-height: 50vh;
+}
+.serious::after{
+  clear: both;
+}
+.bar{
+  min-width: 70vw;
+  min-height: 50vh;
+}
+.flex{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+.bg{
+  position: relative;
+  height: 100vh;
+  margin: 20px;
+}

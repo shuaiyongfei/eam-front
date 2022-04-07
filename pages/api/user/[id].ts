@@ -38,7 +38,17 @@ export default async function  handler(req:NextApiRequest, res:NextApiResponse) 
   }
   else if(id==='delete'){
     try {
-      const result=await serverRequest<any>({method:"post",url:'v1/user/delete',data:req.body})
+      const result=await serverRequest<any>({method:"post",url:'v1/user/delete',data:req.body,headers:{authorization:req.headers.authorization}})
+      res.status(200).json(result.data)
+    } catch (error) {
+      if(axios.isAxiosError(error)){
+        res.status(Number(error.code)).json('服务器错误')
+      }
+    }
+  }
+  else if(id==='add'){
+    try {
+      const result=await serverRequest<any>({method:"post",url:'v1/user/add',data:req.body,headers:{authorization:req.headers.authorization}})
       res.status(200).json(result.data)
     } catch (error) {
       if(axios.isAxiosError(error)){
