@@ -3,16 +3,21 @@ import { Button, Card, Form, Input, Modal, notification, Radio} from 'antd';
 import style from './index.module.css'
 import classNames from "classnames/bind";
 import {frontRequest as request} from '../../utils/axios'
+import { useRouter } from "next/router";
 let cx = classNames.bind(style);
 
 
 const Admin:React.FC<any>=()=>{
-
   const [form] = Form.useForm();
+  const router = useRouter()
   const OnFinish= async (val)=>{
     try{
-    let res=await request({method:'POST',url:'/user/add',data:val})
-    if((res.data as any).errorCode===200){
+    let url='/user/add';
+    if(!router.query){
+      url='/user/update'
+    }
+    let res=await request({method:'POST',url,data:val})
+    if((res.data as any).errorCode===0){
       notification.success({
         message: '记录成功',
         description:

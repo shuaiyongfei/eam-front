@@ -74,7 +74,7 @@ const Member:React.FC<any>=()=>{
           <a>删除</a>
           </Popconfirm>
           <a onClick={()=>{
-            router.push('/admin')
+            router.push(`/admin?user=${text.user}`)
           }}>修改</a>
         </Space>
       ),

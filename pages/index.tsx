@@ -6,7 +6,6 @@ import style from './index.module.css'
 
 const { Footer, Sider, Content } = Layout;
 
-const { SubMenu } = Menu;
 let cx = classNames.bind(style);
 
 const HomePage=()=> {

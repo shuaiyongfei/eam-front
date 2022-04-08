@@ -1,3 +1,4 @@
+import { Modal } from 'antd';
 import axios, { AxiosRequestConfig } from 'axios';
 
 
@@ -24,7 +25,26 @@ front.interceptors.request.use((config)=>{
     "userLoginInfo")}`
   return config
 })
-
+front.interceptors.response.use((config)=>{
+  let code=config.data.errorCode;;
+  if(code==401){
+    Modal.warning({
+      title: '错误',
+      content: (config.data as any).msg,
+    });
+    location.replace('/register')
+    return Promise.reject()
+  }
+  if(code===403){
+    Modal.warning({
+      title: '输入错误',
+      content: (config.data as any).msg,
+    });
+    location.replace('/register');
+    return Promise.reject()
+  }
+  return config
+})
 export function frontRequest<T>(options: AxiosRequestConfig) {
   return front.request<T>(options);
 }
