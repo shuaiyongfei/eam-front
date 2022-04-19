@@ -49,8 +49,12 @@ const Member:React.FC<any>=()=>{
 
   const columns: ColumnsType=[
     {
+      title: '工号',
+      dataIndex: 'user_id',
+    },
+    {
       title: '账号',
-      dataIndex: 'user',
+      dataIndex: 'user_name',
     },
     {
       title: '角色',
@@ -74,7 +78,7 @@ const Member:React.FC<any>=()=>{
           <a>删除</a>
           </Popconfirm>
           <a onClick={()=>{
-            router.push(`/admin?user=${text.user}`)
+            router.push(`/admin?user_id=${text.user_id}`)
           }}>修改</a>
         </Space>
       ),

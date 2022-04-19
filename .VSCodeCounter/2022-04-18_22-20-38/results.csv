@@ -1,0 +1,44 @@
+"filename", "language", "JavaScript", "TypeScript", "TypeScript React", "CSS", "JSON with Comments", "JSON", "comment", "blank", "total"
+"c:\Users\dell\Desktop\node.js\eam\front\config\index.ts", "TypeScript", 0, 28, 0, 0, 0, 0, 12, 24, 64
+"c:\Users\dell\Desktop\node.js\eam\front\container\AllForm\index.tsx", "TypeScript React", 0, 0, 223, 0, 0, 0, 0, 15, 238
+"c:\Users\dell\Desktop\node.js\eam\front\container\Chart\index.module.css", "CSS", 0, 0, 0, 22, 0, 0, 0, 0, 22
+"c:\Users\dell\Desktop\node.js\eam\front\container\Chart\index.tsx", "TypeScript React", 0, 0, 105, 0, 0, 0, 0, 8, 113
+"c:\Users\dell\Desktop\node.js\eam\front\container\Inspect\index.tsx", "TypeScript React", 0, 0, 81, 0, 0, 0, 0, 4, 85
+"c:\Users\dell\Desktop\node.js\eam\front\container\Member\index.tsx", "TypeScript React", 0, 0, 92, 0, 0, 0, 0, 4, 96
+"c:\Users\dell\Desktop\node.js\eam\front\container\Upload\index.module.css", "CSS", 0, 0, 0, 8, 0, 0, 0, 0, 8
+"c:\Users\dell\Desktop\node.js\eam\front\container\Upload\index.tsx", "TypeScript React", 0, 0, 21, 0, 0, 0, 0, 9, 30
+"c:\Users\dell\Desktop\node.js\eam\front\container\choice\index.tsx", "TypeScript React", 0, 0, 263, 0, 0, 0, 4, 7, 274
+"c:\Users\dell\Desktop\node.js\eam\front\container\serious\index.tsx", "TypeScript React", 0, 0, 136, 0, 0, 0, 0, 11, 147
+"c:\Users\dell\Desktop\node.js\eam\front\next-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 4, 2, 6
+"c:\Users\dell\Desktop\node.js\eam\front\next.config.js", "JavaScript", 11, 0, 0, 0, 0, 0, 0, 0, 11
+"c:\Users\dell\Desktop\node.js\eam\front\package.json", "JSON", 0, 0, 0, 0, 0, 41, 0, 1, 42
+"c:\Users\dell\Desktop\node.js\eam\front\pages\_app.tsx", "TypeScript React", 0, 0, 4, 0, 0, 0, 1, 5, 10
+"c:\Users\dell\Desktop\node.js\eam\front\pages\admin\index.module.css", "CSS", 0, 0, 0, 5, 0, 0, 0, 0, 5
+"c:\Users\dell\Desktop\node.js\eam\front\pages\admin\index.tsx", "TypeScript React", 0, 0, 78, 0, 0, 0, 0, 2, 80
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\count.ts", "TypeScript", 0, 13, 0, 0, 0, 0, 0, 4, 17
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\deleteSerious.ts", "TypeScript", 0, 13, 0, 0, 0, 0, 0, 4, 17
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\getOneSerious.ts", "TypeScript", 0, 14, 0, 0, 0, 0, 0, 4, 18
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\getSerious.ts", "TypeScript", 0, 13, 0, 0, 0, 0, 0, 4, 17
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\inspection\[id].ts", "TypeScript", 0, 27, 0, 0, 0, 0, 0, 4, 31
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\search.ts", "TypeScript", 0, 13, 0, 0, 0, 0, 0, 4, 17
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\serious.ts", "TypeScript", 0, 15, 0, 0, 0, 0, 0, 4, 19
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\upload.ts", "TypeScript", 0, 24, 0, 0, 0, 0, 0, 7, 31
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\user\[id].ts", "TypeScript", 0, 66, 0, 0, 0, 0, 0, 4, 70
+"c:\Users\dell\Desktop\node.js\eam\front\pages\index.tsx", "TypeScript React", 0, 0, 5, 0, 0, 0, 0, 5, 10
+"c:\Users\dell\Desktop\node.js\eam\front\pages\inspect\index.module.css", "CSS", 0, 0, 0, 5, 0, 0, 0, 0, 5
+"c:\Users\dell\Desktop\node.js\eam\front\pages\inspect\index.tsx", "TypeScript React", 0, 0, 61, 0, 0, 0, 0, 1, 62
+"c:\Users\dell\Desktop\node.js\eam\front\pages\meta\index.module.css", "CSS", 0, 0, 0, 32, 0, 0, 0, 0, 32
+"c:\Users\dell\Desktop\node.js\eam\front\pages\meta\index.tsx", "TypeScript React", 0, 0, 271, 0, 0, 0, 4, 7, 282
+"c:\Users\dell\Desktop\node.js\eam\front\pages\register\index.module.css", "CSS", 0, 0, 0, 35, 0, 0, 0, 1, 36
+"c:\Users\dell\Desktop\node.js\eam\front\pages\register\index.tsx", "TypeScript React", 0, 0, 101, 0, 0, 0, 0, 6, 107
+"c:\Users\dell\Desktop\node.js\eam\front\pages\styles.css", "CSS", 0, 0, 0, 1, 0, 0, 0, 0, 1
+"c:\Users\dell\Desktop\node.js\eam\front\pages\system\[id].tsx", "TypeScript React", 0, 0, 82, 0, 0, 0, 0, 5, 87
+"c:\Users\dell\Desktop\node.js\eam\front\pages\system\index.module.css", "CSS", 0, 0, 0, 14, 0, 0, 0, 0, 14
+"c:\Users\dell\Desktop\node.js\eam\front\store\index.ts", "TypeScript", 0, 18, 0, 0, 0, 0, 0, 7, 25
+"c:\Users\dell\Desktop\node.js\eam\front\store\types.ts", "TypeScript", 0, 8, 0, 0, 0, 0, 0, 3, 11
+"c:\Users\dell\Desktop\node.js\eam\front\store\user.ts", "TypeScript", 0, 53, 0, 0, 0, 0, 0, 15, 68
+"c:\Users\dell\Desktop\node.js\eam\front\tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 30, 0, 0, 1, 31
+"c:\Users\dell\Desktop\node.js\eam\front\utils\axios.ts", "TypeScript", 0, 46, 0, 0, 0, 0, 0, 11, 57
+"c:\Users\dell\Desktop\node.js\eam\front\utils\cookie.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 3, 8
+"c:\Users\dell\Desktop\node.js\eam\front\utils\store.ts", "TypeScript", 0, 32, 0, 0, 0, 0, 0, 5, 37
+"Total", "-", 11, 388, 1523, 122, 30, 41, 25, 201, 2341

@@ -13,7 +13,7 @@ const Admin:React.FC<any>=()=>{
   const OnFinish= async (val)=>{
     try{
     let url='/user/add';
-    if(!router.query){
+    if(Object.keys(router.query).length>0){
       url='/user/update'
     }
     let res=await request({method:'POST',url,data:val})
@@ -37,23 +37,30 @@ const Admin:React.FC<any>=()=>{
       });
     }
   }
-  return <Card title="巡护人员添加" className={cx('bg')}>
+  return <Card title="用户" className={cx('bg')}>
   <Form
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 8 }}
     form={form}
     onFinish={OnFinish}
       >
+      <Form.Item
+        label="工号"
+        name="user_id"
+        rules={[{ len:6, message: '请输入六位数字!' },{ required: true, message: '请输入账号!' }]}
+      >
+        <Input defaultValue={router.query.user_id} />
+      </Form.Item>
      <Form.Item
         label="账号"
-        name="user"
+        name="user_name"
         rules={[{ required: true, message: '请输入账号!' }]}
       >
         <Input />
       </Form.Item>
       <Form.Item
         label="密码"
-        name="password"
+        name="user_password"
         rules={[{ required: true, message: '请输入密码!' }]}
       >
         <Input />

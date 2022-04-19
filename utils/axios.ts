@@ -19,10 +19,10 @@ const server=axios.create({
 
 
 front.interceptors.request.use((config)=>{
-  const token=localStorage.getItem(
-    "userLoginInfo")
   config.headers.Authorization = `token ${localStorage.getItem(
     "userLoginInfo")}`
+
+  config.headers.super=localStorage.getItem("super")
   return config
 })
 front.interceptors.response.use((config)=>{

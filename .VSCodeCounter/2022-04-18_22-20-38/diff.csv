@@ -1,0 +1,31 @@
+"filename", "language", "JavaScript", "TypeScript React", "CSS", "TypeScript", "comment", "blank", "total"
+"c:\Users\dell\Desktop\node.js\eam\front\base\container\index.module.css", "CSS", 0, 0, -13, 0, 0, 0, -13
+"c:\Users\dell\Desktop\node.js\eam\front\base\container\index.tsx", "TypeScript React", 0, -11, 0, 0, 0, -4, -15
+"c:\Users\dell\Desktop\node.js\eam\front\base\media\index.tsx", "TypeScript React", 0, -22, 0, 0, 0, -2, -24
+"c:\Users\dell\Desktop\node.js\eam\front\container\AllForm\index.tsx", "TypeScript React", 0, -1, 0, 0, 0, 0, -1
+"c:\Users\dell\Desktop\node.js\eam\front\container\Chart\index.module.css", "CSS", 0, 0, 22, 0, 0, 0, 22
+"c:\Users\dell\Desktop\node.js\eam\front\container\Chart\index.tsx", "TypeScript React", 0, 41, 0, 0, 0, 0, 41
+"c:\Users\dell\Desktop\node.js\eam\front\container\Inspect\index.tsx", "TypeScript React", 0, 7, 0, 0, 0, -1, 6
+"c:\Users\dell\Desktop\node.js\eam\front\container\Member\index.tsx", "TypeScript React", 0, 6, 0, 0, 0, 0, 6
+"c:\Users\dell\Desktop\node.js\eam\front\container\Upload\index.module.css", "CSS", 0, 0, 8, 0, 0, 0, 8
+"c:\Users\dell\Desktop\node.js\eam\front\container\Upload\index.tsx", "TypeScript React", 0, 10, 0, 0, 0, 6, 16
+"c:\Users\dell\Desktop\node.js\eam\front\container\serious\index.tsx", "TypeScript React", 0, 136, 0, 0, 0, 11, 147
+"c:\Users\dell\Desktop\node.js\eam\front\container\verification\index.tsx", "TypeScript React", 0, -33, 0, 0, 0, 0, -33
+"c:\Users\dell\Desktop\node.js\eam\front\next.config.js", "JavaScript", 11, 0, 0, 0, 0, 0, 11
+"c:\Users\dell\Desktop\node.js\eam\front\pages\admin\index.module.css", "CSS", 0, 0, 5, 0, 0, 0, 5
+"c:\Users\dell\Desktop\node.js\eam\front\pages\admin\index.tsx", "TypeScript React", 0, 45, 0, 0, 0, -1, 44
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\inspection.ts", "TypeScript", 0, 0, 0, -13, 0, -4, -17
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\inspection\[id].ts", "TypeScript", 0, 0, 0, 27, 0, 4, 31
+"c:\Users\dell\Desktop\node.js\eam\front\pages\api\user\[id].ts", "TypeScript", 0, 0, 0, 20, 0, 0, 20
+"c:\Users\dell\Desktop\node.js\eam\front\pages\index.module.css", "CSS", 0, 0, -12, 0, 0, 0, -12
+"c:\Users\dell\Desktop\node.js\eam\front\pages\index.tsx", "TypeScript React", 0, -38, 0, 0, 0, -2, -40
+"c:\Users\dell\Desktop\node.js\eam\front\pages\inspect\index.module.css", "CSS", 0, 0, 5, 0, 0, 0, 5
+"c:\Users\dell\Desktop\node.js\eam\front\pages\inspect\index.tsx", "TypeScript React", 0, 61, 0, 0, 0, 1, 62
+"c:\Users\dell\Desktop\node.js\eam\front\pages\meta\index.module.css", "CSS", 0, 0, 29, 0, 0, 0, 29
+"c:\Users\dell\Desktop\node.js\eam\front\pages\meta\index.tsx", "TypeScript React", 0, 8, 0, 0, 0, 0, 8
+"c:\Users\dell\Desktop\node.js\eam\front\pages\register\index.module.css", "CSS", 0, 0, 10, 0, 0, 0, 10
+"c:\Users\dell\Desktop\node.js\eam\front\pages\register\index.tsx", "TypeScript React", 0, 1, 0, 0, 0, 0, 1
+"c:\Users\dell\Desktop\node.js\eam\front\pages\system\[id].tsx", "TypeScript React", 0, 1, 0, 0, 0, 0, 1
+"c:\Users\dell\Desktop\node.js\eam\front\server.js", "JavaScript", -41, 0, 0, 0, 0, -6, -47
+"c:\Users\dell\Desktop\node.js\eam\front\utils\axios.ts", "TypeScript", 0, 0, 0, 21, 0, -1, 20
+"Total", "-", -30, 211, 54, 55, 0, 1, 291

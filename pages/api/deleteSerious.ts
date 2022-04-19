@@ -6,7 +6,7 @@ import {serverRequest} from "../../utils/axios"
 
 export default async function  handler(req:NextApiRequest, res:NextApiResponse) {
   try {
-    const result=await serverRequest<any>({method:'POST',url:'/v1/serious/delete',data:req.body,headers:{authorization:req.headers.authorization}})
+    const result=await serverRequest<any>({method:'POST',url:'/v1/serious/delete',data:req.body,headers:{authorization:req.headers.authorization,super:req.headers.super as string}})
     res.status(200).json(result.data)
   } catch (error) {
     if(axios.isAxiosError(error)){

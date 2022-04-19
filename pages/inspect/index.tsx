@@ -37,16 +37,23 @@ const Admin:React.FC<any>=()=>{
     form={form}
     onFinish={OnFinish}
       >
+      <Form.Item
+        label="工号"
+        name="patrol_id"
+        rules={[{ required: true, message: '请输入姓名' }]}
+      >
+        <Input />
+      </Form.Item>
      <Form.Item
         label="姓名"
-        name="name"
+        name="patrol_name"
         rules={[{ required: true, message: '请输入姓名' }]}
       >
         <Input />
       </Form.Item>
       <Form.Item
         label="电话"
-        name="phone"
+        name="patrol_phone"
         rules={[{ required: true, message: '请输入电话号码' }]}
       >
         <Input />

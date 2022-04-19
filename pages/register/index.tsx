@@ -11,8 +11,9 @@ let cx = classNames.bind(style);
 
 const Login:React.FC<any>=()=>{
   const onFinish = async (values: any) => {
+    console.log(values,'++++++++++++++++++++==')
       if(values.check==='login'){
-        const result= await frontRequest<any>({url:"/user/login",data:{user:values.user,password:values.password,admin:true} , method:"post"})
+        const result= await frontRequest<any>({url:"/user/login",data:{...values,admin:true} , method:"post"})
         console.log(result.data)
         if(result.data?.errorCode){
           Modal.warning({
@@ -23,8 +24,9 @@ const Login:React.FC<any>=()=>{
         else{
           localStorage.setItem(
             "userLoginInfo",
-            result.data?.msg
+            result.data?.msg.token
           ); 
+          localStorage.setItem('super',result.data?.msg.super)
           notification.success({
             message: '登录成功',
             description:
@@ -35,7 +37,7 @@ const Login:React.FC<any>=()=>{
       }
       else{ 
         try{
-            const result= await frontRequest<any>({url:"/user/register",data:{user:values.user,password:values.password,admin:true},method:"post"})
+            const result= await frontRequest<any>({url:"/user/register",data:{...values,admin:true},method:"post"})
             if(result.data?.errorCode){
               Modal.warning({
                 title: '输入错误',
@@ -72,15 +74,22 @@ const Login:React.FC<any>=()=>{
       onFinish={onFinish}
     >
       <Form.Item
+        label="工号"
+        name="user_id"
+        rules={[{ len:6, message: '请输入六位数字!' }]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
         label="用户名"
-        name="user"
+        name="user_name"
         rules={[{ required: true, message: '请输入用户名' }]}
       >
         <Input />
       </Form.Item>
       <Form.Item
         label="密码"
-        name="password"
+        name="user_password"
         rules={[{ required: true, message: '请输入密码' }]}
       >
         <Input.Password />

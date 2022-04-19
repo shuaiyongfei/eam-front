@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect,useMemo,useState } from "react"
+import React, {  useEffect,useMemo,useState } from "react"
 import { Button, Popconfirm, Space, Table } from "antd";
 import { useRouter } from 'next/router'
 import { ColumnsType } from 'antd/es/table';
@@ -38,12 +38,16 @@ const Inspection:React.FC<any>=()=>{
 
   const columns: ColumnsType=[
     {
+      title: '巡护人员工号',
+      dataIndex: 'patrol_id',
+    },
+    {
       title: '巡护人员',
-      dataIndex: 'name',
+      dataIndex: 'patrol_name',
     },
     {
       title: '电话',
-      dataIndex: 'phone',
+      dataIndex: 'patrol_phone',
     },
     {
       title: '操作',
@@ -56,7 +60,7 @@ const Inspection:React.FC<any>=()=>{
             onConfirm={()=>{
               const tempData=[...data]
               tempData.splice(dataIndex,1)
-              strikeOut(text.phone)
+              strikeOut(text.patrol_id)
               setData(tempData)
             }}
           >

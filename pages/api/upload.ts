@@ -18,8 +18,8 @@ export default async function  handler(req:NextApiRequest, res:NextApiResponse) 
   const path=(data as any).files.file.filepath;
   let form = new FormData(); 
   form.append('file', fs.createReadStream(path));
-  await serverRequest({url,method:'POST',data:form, headers:{...form.getHeaders(),authorization:req.headers.authorization}});
-  res.send("多图上传失败");
+  await serverRequest({url,method:'POST',data:form, headers:{...form.getHeaders(),super:'111111'}});
+  res.send("上传失败");
 }
 
 
