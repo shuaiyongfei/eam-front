@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Form, Input, Card, Button, notification, Modal} from 'antd';
 import style from './index.module.css'
 import classNames from "classnames/bind";
@@ -7,6 +7,11 @@ let cx = classNames.bind(style);
 
 const Admin:React.FC<any>=()=>{
   const [form] = Form.useForm();
+
+  useEffect(()=>{
+    
+  },[])
+
   const OnFinish= async (val)=>{
     try{
     let res=await request({method:'POST',url:'/inspection/add',data:val})
@@ -30,7 +35,7 @@ const Admin:React.FC<any>=()=>{
       });
     }
   }
-  return <Card title="巡护人员添加" className={cx('bg')}>
+  return <Card title="巡护人员" className={cx('bg')}>
   <Form
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 8 }}

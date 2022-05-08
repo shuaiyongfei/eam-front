@@ -76,7 +76,7 @@ const Inspection:React.FC<any>=()=>{
 
   return (<>
     <div style={{display:'flex',justifyContent:"flex-end",margin:'10px 10px'}}>
-      <Button type="primary" onClick={()=>{
+      <Button style={{backgroundColor:'rgb(15,13,10)',border:'0px'}} type="primary" onClick={()=>{
                 router.push('/inspect')
               }} >
                 添加

@@ -1,27 +1,20 @@
 .banner-bg {
-  height: 350px;
+  height: 100vh;
   position: relative;
+  background-image: url('../../public/bg.jpg');
+  background-size: contain;
+  mix-blend-mode: difference;
+  background-color: beige;
 }
 .title {
   font-size: 30px;
   color:black;
   line-height: 45px;
   text-align: center;
-  font-weight: 900;
+  font-weight: 500;
   margin-bottom: 50px;
 }
-.bg{
-  position: absolute;
-  top:10vh;
-  width: 100vw;
-  height: 70vh;
-  z-index: -1;
-  background-image: url('../../public/pieple.jpeg') ,url('../../public/bol.jpeg');
-  background-repeat: no-repeat;
-  background-position:right,left;
-  background-size: 50vw,50vw;
-  border: 0px solid white;
-}
+
 .card{
   box-sizing: border-box;
   padding: 50px 65px;
@@ -29,7 +22,12 @@
   box-shadow: 0 2px 20px 0 rgb(0 0 0 / 10%);
   border-radius: 4px;
   width: 430px;
-  margin: 0 auto;
+  height: fit-content;
+  margin: 20px auto;
   position: relative;
-  height: 320px;
+  height: 420px;
+}
+.card >form{
+  background-color: #FFFFFF;
+  z-index: 2;
 }

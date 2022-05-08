@@ -14,7 +14,7 @@ const front=axios.create({
 })
 
 const server=axios.create({
-  baseURL:'http://localhost:3001'
+  baseURL:'http://101.132.195.3:3001'
 })
 
 

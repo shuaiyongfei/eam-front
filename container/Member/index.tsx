@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect,useMemo,useState } from "react"
+import React, { useEffect,useMemo,useState } from "react"
 import { Button, Popconfirm, Space, Table } from "antd";
 import { useRouter } from 'next/router'
 import { ColumnsType } from 'antd/es/table';
@@ -9,7 +9,8 @@ const Member:React.FC<any>=()=>{
   const [data,setData]=useState<Array<any>>()
   const router = useRouter()
   useEffect(()=>{
-    frontRequest({method:"GET",url:'/user/all'}).then((res)=>{
+    const user_id=localStorage.getItem('user_id')
+    frontRequest({method:"post",url:'/user/all',data:{user_id}}).then((res)=>{
       if(Array.isArray(res.data)){
       setData(res.data.map(val=>{
         let admin=''
@@ -71,7 +72,7 @@ const Member:React.FC<any>=()=>{
             onConfirm={()=>{
               const tempData=[...data]
               tempData.splice(dataIndex,1)
-              strikeOut(text.user)
+              strikeOut(text.user_id)
               setData(tempData)
             }}
           >
@@ -87,7 +88,7 @@ const Member:React.FC<any>=()=>{
 
   return (<>
    <div style={{display:'flex',justifyContent:"flex-end",margin:'10px 10px'}}>
-    <Button type="primary" onClick={()=>{
+    <Button style={{backgroundColor:'rgb(15,13,10)',border:'0px'}} type="primary" onClick={()=>{
               router.push('/admin')
             }} >
               添加

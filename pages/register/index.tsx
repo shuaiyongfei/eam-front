@@ -11,7 +11,6 @@ let cx = classNames.bind(style);
 
 const Login:React.FC<any>=()=>{
   const onFinish = async (values: any) => {
-    console.log(values,'++++++++++++++++++++==')
       if(values.check==='login'){
         const result= await frontRequest<any>({url:"/user/login",data:{...values,admin:true} , method:"post"})
         console.log(result.data)
@@ -22,10 +21,13 @@ const Login:React.FC<any>=()=>{
           });
         }
         else{
+          console.log(values,'++++++++++++++++++++++++++')
+          localStorage.clear()
+          localStorage.setItem("user_id",values.user_id) 
           localStorage.setItem(
             "userLoginInfo",
             result.data?.msg.token
-          ); 
+          );
           localStorage.setItem('super',result.data?.msg.super)
           notification.success({
             message: '登录成功',
@@ -61,55 +63,55 @@ const Login:React.FC<any>=()=>{
   }
    
   return (<div className={cx('banner-bg')}>
-    <div className={cx('title')}>高后果区管理系统注册</div>
-    <div className={cx('bg')}></div>
+    <div style={{height:"20px"}}></div>
     <div className={cx('card')}>
-    <Form
-      colon={false}
-      name="basic"
-      labelCol={{ span: 6 }}
-      wrapperCol={{ span: 18 }}
-      initialValues={{ remember: true }}
-      autoComplete="off"
-      onFinish={onFinish}
-    >
-      <Form.Item
-        label="工号"
-        name="user_id"
-        rules={[{ len:6, message: '请输入六位数字!' }]}
+      <div className={cx('title')}>高后果区管理系统注册</div>
+      <Form
+        colon={false}
+        name="basic"
+        labelCol={{ span: 6 }}
+        wrapperCol={{ span: 18 }}
+        initialValues={{ remember: true }}
+        autoComplete="off"
+        onFinish={onFinish}
       >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="用户名"
-        name="user_name"
-        rules={[{ required: true, message: '请输入用户名' }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="密码"
-        name="user_password"
-        rules={[{ required: true, message: '请输入密码' }]}
-      >
-        <Input.Password />
-      </Form.Item>
-      <Form.Item
-        label="选择"
-        name="check"
-        rules={[{ required: true, message: '请选择登录或注册' }]}
-      >
-        <Radio.Group >
-          <Radio value={'login'}>登录</Radio>
-          <Radio value={'register'}>注册</Radio>
-        </Radio.Group>
-      </Form.Item>
-      <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
-        <Button type="primary" htmlType="submit">
-          提交
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item
+          label="工号"
+          name="user_id"
+          rules={[{ len:6, message: '请输入六位数字!' },{ required: true, message: '请输入用户名' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="用户名"
+          name="user_name"
+          rules={[{ required: true, message: '请输入用户名' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="密码"
+          name="user_password"
+          rules={[{ required: true, message: '请输入密码' }]}
+        >
+          <Input.Password />
+        </Form.Item>
+        <Form.Item
+          label="选择"
+          name="check"
+          rules={[{ required: true, message: '请选择登录或注册' }]}
+        >
+          <Radio.Group >
+            <Radio value={'login'}>登录</Radio>
+            <Radio value={'register'}>注册</Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
+          <Button type="primary" htmlType="submit">
+            提交
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   </div>)
 }

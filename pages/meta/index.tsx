@@ -18,7 +18,11 @@ const meta:React.FC<any>=()=>{
   useEffect(()=> {
     async function getData (){
       const res=await frontRequest<any>({ method: 'GET', url: `/getOneSerious?name=${id}` })
-      form.setFieldsValue(res.data)
+      const data=res.data[0]
+      const Detail=data?.Detail
+      const Patrol=data?.Patrol
+      const formData={...Detail,...Patrol,...data}
+      form.setFieldsValue(formData)
     }
     getData()
   },[id])
@@ -39,7 +43,6 @@ const meta:React.FC<any>=()=>{
    const result= await request<any>({url,data:val , method:"post"})
    if(result.data?.errorCode){
       Modal.warning({
-        title: '输入错误',
         content: result.data.msg,
       });
     }

@@ -18,7 +18,11 @@ const  AllForm=()=>{
   useEffect(()=> {
     async function getData (){
       const temp=await frontRequest<any>({ method: 'GET', url: '/getSerious' })
-      setData(temp.data)
+      const finnal=[]
+      for(let i=0;i<temp.data.length;i++){
+        finnal.push({...(temp.data[i] as any).Detail,...temp.data[i],...(temp.data[i] as any).Patrol})
+      }
+      setData(finnal)
     }
     getData()
   },[flag])
@@ -198,7 +202,11 @@ const  AllForm=()=>{
       value=raw.next()
     }    
     let res=await frontRequest<any>({method:"post",url:'/search',data})
-    setData(res.data)
+    const finnal=[]
+    for(let i=0;i<res.data.length;i++){
+      finnal.push({...(res.data[i] as any).Detail,...res.data[i],...(res.data[i] as any).Patrol})
+    }
+    setData(finnal)
   }
 
 
@@ -210,14 +218,14 @@ const  AllForm=()=>{
               const targetValue=e.target.value
               setValue(targetValue)
             }}/>
-            <Button type="primary" icon={<SearchOutlined />} style={{width:"5vw"}} onClick={()=>{
+            <Button type="primary"   icon={<SearchOutlined />} style={{width:"5vw",backgroundColor:'rgb(15,13,10)',border:'0px'}} onClick={()=>{
               const query=value.trim().replace(/\s*[:\uff1a]\s*/ug,'=').replace(/\s*\|\s*/g,'&')
               search(query)
             }}>
             </Button>
           </div>
           <div>
-            <Button type="primary" onClick={()=>{
+            <Button type="primary" style={{backgroundColor:'rgb(15,13,10)',border:'0px'}} onClick={()=>{
               router.push('/meta')
             }}>
               添加

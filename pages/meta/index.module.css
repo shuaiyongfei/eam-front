@@ -3,7 +3,7 @@
 }
 .bg{
   margin: 5vw;
-  border: 2px solid black;
+  box-shadow: 0 2px 20px 0 rgb(0 0 0 / 10%);
 }
 .address-content{
   display: flex;

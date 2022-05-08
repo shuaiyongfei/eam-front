@@ -2,6 +2,9 @@
   position: relative;
   height: 100vh;
   margin: 20px;
+  background-image: url('../../public/bg.jpg');
+  background-size: contain;
+  mix-blend-mode: difference;
 }
 .ant-upload-drag-icon{
   font-size: 50px;

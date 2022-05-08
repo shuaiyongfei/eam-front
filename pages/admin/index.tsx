@@ -17,7 +17,7 @@ const Admin:React.FC<any>=()=>{
       url='/user/update'
     }
     let res=await request({method:'POST',url,data:val})
-    if((res.data as any).errorCode===0){
+    if((res.data as any).errorCode===200){
       notification.success({
         message: '记录成功',
         description:
@@ -47,14 +47,14 @@ const Admin:React.FC<any>=()=>{
       <Form.Item
         label="工号"
         name="user_id"
-        rules={[{ len:6, message: '请输入六位数字!' },{ required: true, message: '请输入账号!' }]}
+        rules={[{ required: true, message: '请输入账号!' },{ len:6, message: '请输入六位数字!' }]}
       >
         <Input defaultValue={router.query.user_id} />
       </Form.Item>
      <Form.Item
         label="账号"
         name="user_name"
-        rules={[{ required: true, message: '请输入账号!' }]}
+        rules={[{ required: true, message: '请输入账号!!' }]}
       >
         <Input />
       </Form.Item>

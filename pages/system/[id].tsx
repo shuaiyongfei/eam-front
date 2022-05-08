@@ -55,7 +55,7 @@ const HomePage=()=> {
             <Menu.Item key="4" onClick={()=>{
               router.push('/system/inspection')
             }}>
-              巡回人员
+              巡护人员
             </Menu.Item>
             <Menu.Item key="5" onClick={()=>{
               router.push('/system/chart')

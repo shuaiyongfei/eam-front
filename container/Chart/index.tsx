@@ -20,6 +20,13 @@ const Chart:React.FC<any>=()=>{
     { value: 735, name: 'Ⅱ' },
     { value: 580, name: 'Ⅲ' },
   ])
+
+  const[level,setLevel]=useState([
+    { value: 1048, name: 'I' },
+    { value: 735, name: 'Ⅱ' },
+    { value: 580, name: 'Ⅲ' },
+  ])
+
   useEffect(()=>{
     async function getData(){
       const res=await frontRequest({method:'GET',url:'/count'})
@@ -33,10 +40,27 @@ const Chart:React.FC<any>=()=>{
       }
       SetData(newData)
     }
+
+    async function getLevelData(){
+      const res=await frontRequest({method:'GET',url:'/levelCount'})
+      const {count,rows}=res.data as any
+      let newData=[]
+      for(let i=0;i<count.length;i++){
+        let tmp={} as any;
+        tmp.value= count[i].count
+        tmp.name= rows[i].serious_level
+        newData.push(tmp)
+      }
+      setLevel(newData)
+    }
+
+    getLevelData()
     getData()
   },[])
 
   const [flag,setFlag]=useState(false)
+
+  const [flag2,setFlag2]=useState(false)
   useEffect(()=>{
     let chartDom = document.getElementById('main');
     let myChart = chartDom&&echarts.init(chartDom);
@@ -81,7 +105,6 @@ const Chart:React.FC<any>=()=>{
         {
           name: '高后果区',
           type: 'pie',
-          radius: '50%',
           data:data,
           emphasis: {
             itemStyle: {
@@ -95,6 +118,65 @@ const Chart:React.FC<any>=()=>{
     };
     myChart&&myChart.setOption(option as any);
   },[data,flag])
+
+
+  useEffect(()=>{
+    let chartDom = document.getElementById('main1');
+    let myChart = chartDom&&echarts.init(chartDom);
+    let option: EChartsOption;
+    const barData=data.map(val=>val.value)
+    option = {
+      title: {
+        text: "等级占比",
+        left: 'center'
+      },
+      xAxis: {
+        type: 'category',
+        data: ['I', 'Ⅱ','Ⅲ']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: '等级',
+          type: "bar",
+          data:barData,
+        }
+      ]
+    };
+    myChart&&myChart.setOption(option as any);
+  },[level,flag2])
+  useEffect(()=>{
+    let chartDom = document.getElementById('bar1');
+    let myChart = chartDom&&echarts.init(chartDom);
+    let option: EChartsOption;
+    option = {
+      title: {
+        text: "等级占比",
+        left: 'center'
+      },
+      tooltip: {
+        trigger: 'item'
+      },
+      series: [
+        {
+          name: '等级',
+          type: 'pie',
+          data:data,
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
+    };
+    myChart&&myChart.setOption(option as any);
+  },[level,flag2])
+
   return (
     <Card title="数据统计" bordered={false} className={cx('bg')}>
   <Tabs defaultActiveKey="1" onTabClick={()=>{
@@ -105,6 +187,16 @@ const Chart:React.FC<any>=()=>{
     </TabPane>
     <TabPane tab="饼图" key="2">
       <div id='bar' className={cx('bar')}></div>
+    </TabPane>
+  </Tabs>
+  <Tabs defaultActiveKey="1" onTabClick={()=>{
+    setFlag2(flag=>!flag)
+  }}>
+    <TabPane tab="柱状图" key="1">
+      <div id='main1' className={cx('serious')}></div>
+    </TabPane>
+    <TabPane tab="饼图" key="2">
+      <div id='bar1' className={cx('bar')}></div>
     </TabPane>
   </Tabs>
   </Card>
